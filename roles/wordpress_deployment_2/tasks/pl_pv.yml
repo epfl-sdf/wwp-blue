@@ -4,13 +4,13 @@
     as_admin: true
     state: "{{state}}"
     kind: PersistentVolume
-    name: "nfs-pv-bat"
+    name: "nfs-pv-wp2"
     namespace: "myproject"
     apiVersion: v1
     metadata:
-      name: nfs-pv-bat
+      name: nfs-pv-wp2
       labels:
-          id: bat
+          id: wp2
     spec:
       capacity:
         storage: 1Gi
@@ -18,7 +18,7 @@
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain
       nfs:
-        path: /
+        path: /wp/wp2
         server: "{{nfs_ip}}"
         readOnly: false
   tags: pv

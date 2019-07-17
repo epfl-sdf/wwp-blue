@@ -1,0 +1,13 @@
+---
+# defaults file for openproject-role
+
+#The name of the deployment
+app_name: mgmt
+#The number of pods to deploy
+replicas: 1
+#The database's server ip
+db_ip: 128.179.146.8
+#The database's name
+db_name: db1
+#The nfs server ip
+nfs_ip: 128.179.146.8

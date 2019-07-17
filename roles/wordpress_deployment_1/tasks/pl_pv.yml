@@ -1,0 +1,24 @@
+---
+- name: "PersistentVolume"
+  openshift:
+    as_admin: true
+    state: "{{state}}"
+    kind: PersistentVolume
+    name: "nfs-pv-wp1"
+    namespace: "myproject"
+    apiVersion: v1
+    metadata:
+      name: nfs-pv-wp1
+      labels:
+          id: wp1
+    spec:
+      capacity:
+        storage: 1Gi
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      nfs:
+        path: /wp/wp1
+        server: "{{nfs_ip}}"
+        readOnly: false
+  tags: pv

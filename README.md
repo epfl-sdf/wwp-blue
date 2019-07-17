@@ -12,7 +12,7 @@ Deployment files for wordpress on ansible using nfs and mysql servers.
  - run pv_init.sh first to create volumes with admin privileges
  - then run ans.sh:
 
-  ```./ans.sh  state=latest app_name=wwp-app  db_ip=128.179.146.8 db_name=db1 nfs_ip=128.179.146.8```
+  ```./ans.sh  state=latest db_ip=128.179.146.8 nfs_ip=128.179.146.8```
 
   - state : required
   - app_name : optional (default wwp-app)
