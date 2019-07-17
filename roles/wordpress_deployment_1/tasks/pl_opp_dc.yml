@@ -37,12 +37,11 @@
               volumeMounts:
                 - mountPath: /var/www/html/wp-content
                   name: nfsvol-wp1
-              cmd:
-                  - 'chown -R www-data.www-data /var/www/html'
           volumes:
             - name: nfsvol-wp1
               persistentVolumeClaim:
                 claimName: nfs-pvc-wp1
       triggers:
         - type: ConfigChange
+             
   tags: dc
