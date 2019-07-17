@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv-bat
+  labels:
+      id: bat
+spec:
+  capacity:
+    storage: 1Gi 
+  accessModes:
+    - ReadWriteMany 
+  persistentVolumeReclaimPolicy: Retain 
+  nfs: 
+    path: /
+<<<<<<< HEAD
+    server: 128.179.178.87
+=======
+    server: 128.179.146.8
+>>>>>>> wwp_blue_oc
+    readOnly: false
+

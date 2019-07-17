@@ -1,0 +1,24 @@
+---
+- name: "PersistentVolume"
+  openshift:
+    as_admin: true
+    state: "{{state}}"
+    kind: PersistentVolume
+    name: "nfs-pv-bat"
+    namespace: "myproject"
+    apiVersion: v1
+    metadata:
+      name: nfs-pv-bat
+      labels:
+          id: bat
+    spec:
+      capacity:
+        storage: 1Gi
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      nfs:
+        path: /
+        server: "{{nfs_ip}}"
+        readOnly: false
+  tags: pv

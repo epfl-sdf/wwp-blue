@@ -1,0 +1,41 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+
+  labels:
+    run: opp-app
+  name: opp-app
+  namespace: myproject
+
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    run: opp-app
+
+  template:
+    metadata:
+      labels:
+        run: opp-app
+    spec:
+      containers:
+        - env:
+            - name: WORDPRESS_DB_NAME
+              value: db1
+            - name: WORDPRESS_DB_USER
+              value: root
+            - name: WORDPRESS_DB_PASSWORD
+              value: root!
+            - name: WORDPRESS_DB_HOST
+              value: 128.179.178.87
+          image: 'wordpress:latest'
+          name: op-pod
+          volumeMounts:
+            - mountPath: /nfsshare
+              name: nfsvol-2
+      volumes:
+        - name: nfsvol-2
+          persistentVolumeClaim:
+            claimName: nfs-pvc
+  triggers:
+    - type: ConfigChange
