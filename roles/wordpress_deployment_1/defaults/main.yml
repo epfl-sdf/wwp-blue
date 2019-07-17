@@ -2,7 +2,7 @@
 # defaults file for openproject-role
 
 #The name of the deployment
-app_name: wwp-app-1
+app_name: wwp-one
 #The number of pods to deploy
 replicas: 1
 #The database's server ip
