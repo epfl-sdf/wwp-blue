@@ -1,0 +1,4 @@
+[openshift-blue]
+
+wwp-blue-mini1 nfs_path=nfs_wp1:/nfsshare/wp/wp1
+wwp-blue-mini2 nfs_path=nfs_wp2:/nfsshare/wp/wp2
