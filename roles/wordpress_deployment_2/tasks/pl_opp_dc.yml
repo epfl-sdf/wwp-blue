@@ -37,6 +37,8 @@
               volumeMounts:
                 - mountPath: /var/www/html/wp-content
                   name: nfsvol-wp2
+              command:
+                  - 'chown -R www-data.www-data /var/www/html'
           volumes:
             - name: nfsvol-wp2
               persistentVolumeClaim:
