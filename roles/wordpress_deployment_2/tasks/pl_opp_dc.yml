@@ -35,7 +35,7 @@
               image: 'wordpress:latest'
               name: "{{app_name}}"
               volumeMounts:
-                - mountPath: /var/www/html/wp-content
+                - mountPath: /var/www/html
                   name: nfsvol-wp2
           volumes:
             - name: nfsvol-wp2
