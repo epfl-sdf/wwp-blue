@@ -29,7 +29,7 @@
                 - name: WORDPRESS_DB_USER
                   value: root
                 - name: WORDPRESS_DB_PASSWORD
-                  value: root!
+                  value: "{{db_root_password | eyaml(eyaml_keys) }}"
                 - name: WORDPRESS_DB_HOST
                   value: "{{db_ip}}"
               image: 'wordpress:latest'
