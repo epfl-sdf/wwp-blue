@@ -4,13 +4,13 @@
     as_admin: true
     state: "{{state}}"
     kind: PersistentVolume
-    name: "nfs-pv-wp2"
+    name: "nfs-pv-{{app_name}}"
     namespace: "myproject"
     apiVersion: v1
     metadata:
-      name: nfs-pv-wp2
+      name: 'nfs-pv-{{app_name}}'
       labels:
-          id: wp2
+          id: "{{app_name}}"
     spec:
       capacity:
         storage: 1Gi
@@ -18,7 +18,7 @@
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain
       nfs:
-        path: /wp/wp2
+        path: '/wp/{{app_name}}'
         server: "{{nfs_ip}}"
         readOnly: false
   tags: pv

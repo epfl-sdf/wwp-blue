@@ -36,11 +36,12 @@
               name: "{{app_name}}"
               volumeMounts:
                 - mountPath: /var/www/html
-                  name: nfsvol-wp2
+                  name: "nfsvol-{{app_name}}"
           volumes:
-            - name: nfsvol-wp2
+            - name: "nfsvol-{{app_name}}"
               persistentVolumeClaim:
-                claimName: nfs-pvc-wp2
+                claimName: 'nfs-pvc-{{app_name}}'
       triggers:
         - type: ConfigChange
+             
   tags: dc

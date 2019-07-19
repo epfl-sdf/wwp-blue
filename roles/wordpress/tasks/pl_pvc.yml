@@ -4,11 +4,11 @@
     as_admin: true
     state: "{{state}}"
     kind: PersistentVolumeClaim
-    name: "nfs-pvc-wp1"
+    name: "nfs-pvc-{{app_name}}"
     namespace: "myproject"
     apiVersion: v1
     metadata:
-      name: nfs-pvc-wp1
+      name: 'nfs-pvc-{{app_name}}'
     spec:
       accessModes:
       - ReadWriteMany
@@ -17,5 +17,5 @@
            storage: 1Gi
       selector:
           matchLabels:
-              id: wp1
+              id: "{{app_name}}"
   tags: pvc
